@@ -5,10 +5,9 @@ data class Post(
     val postName: String,
     val postData: String,
     val postText: String,
-    var likedByMe: Boolean = false,
-    var likes: Int = 0,
-    var countLikeFormat: Any = countLiked(likes, likedByMe),
+    val likedByMe: Boolean = false,
+    val likes: Int = 0,
+    val countLikeFormat: Any = countLiked(likes, likedByMe),
     var shares: Int = 0,
-    var countShareFormat: Any = countShared(shares)
-
+    val countShareFormat: Any = countShared(shares)
 )
