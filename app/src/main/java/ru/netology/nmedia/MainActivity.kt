@@ -12,17 +12,13 @@ class MainActivity : AppCompatActivity() {
 
     private val viewModel by viewModels<PostViewModel>()
 
-    private fun <T> viewModel(): T {
-
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel.data.observe(this, { post ->
+        val observe = viewModel.data.observe(this, {post ->
             binding.render(post)
 
             binding.like.setOnClickListener {
