@@ -7,68 +7,72 @@ import ru.netology.nmedia.dto.countLiked
 import ru.netology.nmedia.dto.countShared
 
 class InMemoryPostRepository : PostRepository {
+
+    private var nextId = GENERATED_POSTS_AMOUNT.toLong()
+
     private var posts
         get() = checkNotNull(data.value)
         set(value) {
             data.value = value
         }
 
-    override val data: MutableLiveData<List<Post>>
-
-    init {
-        val initialPosts = listOf(
+    override val data = MutableLiveData(
+        List(GENERATED_POSTS_AMOUNT) { index ->
             Post(
-                id = 5,
+                id = index + 1L,
                 postName = "Нетология. Университет интернет-профессий",
-                postData = "12.07.2022",
+                postData = "07.08.2022",
                 postText = "Привет, это новая Нетология!"
-            ),
-            Post(
-                id = 4,
-                postName = "Нетология. Университет интернет-профессий",
-                postData = "11.09.2022",
-                postText = "Привет, это новая Нетология!"
-            ),
-            Post(
-                id = 3,
-                postName = "Нетология. Университет интернет-профессий",
-                postData = "22.08.2022",
-                postText = "Привет, это новая Нетология!"
-            ),
-            Post(
-                id = 2,
-                postName = "Нетология. Университет интернет-профессий",
-                postData = "21.07.2022",
-                postText = "Когда-то Нетология начиналась с интенсивов по онлайн-маркетингу. Затем появились курсы по дизайну, разработке, аналитике и управлению. Мы растём сами и помогаем расти студентам: от новичков до уверенных профессионалов."
-            ),
-            Post(
-                id = 1,
-                postName = "Нетология. Университет интернет-профессий",
-                postData = "20.06.2022",
-                postText = "Привет, это новая Нетология! Когда-то Нетология начиналась с интенсивов по онлайн-маркетингу. Затем появились курсы по дизайну, разработке, аналитике и управлению. Мы растём сами и помогаем расти студентам: от новичков до уверенных профессионалов. Но самое важное остаётся с нами: мы верим, что в каждом уже есть сила, которая заставляет хотеть больше, целиться выше, бежать быстрее. Наша миссия - помочь встать на путь роста и начать цепочку перемен → https://netolo.gy/fyb"
             )
-        )
-        data = MutableLiveData(initialPosts)
-    }
+        }
+    )
 
     override fun like(postId: Long) {
-        posts = posts.map { post ->
-            if (post.id == postId) post.copy(
-                likedByMe = !post.likedByMe,
-                likes = post.likes,
-                countLikeFormat = countLiked(post.likes, !post.likedByMe)
+        posts = posts.map {
+            if (it.id == postId) it.copy(
+                likedByMe = !it.likedByMe,
+                likes = it.likes,
+                countLikeFormat = countLiked(it.likes, !it.likedByMe)
             )
-            else post
+            else it
         }
     }
 
     override fun share(postId: Long) {
-        posts = posts.map { post ->
-            if (post.id == postId) post.copy(
-                shares = post.shares + 1,
-                countShareFormat = countShared(post.shares + 1)
+        posts = posts.map {
+            if (it.id == postId) it.copy(
+                shares = ++it.shares,
+                countShareFormat = countShared(it.shares)
             )
-            else post
+            else it
         }
+    }
+
+    override fun deletePost(postId: Long) {
+        posts = posts.filter {
+            it.id != postId
+        }
+    }
+
+    override fun savePost(post: Post) {
+        if (post.id == PostRepository.NEW_POST_ID) insert(post) else update(post)
+    }
+
+    private fun insert(post: Post) {
+        data.value = listOf(
+            post.copy(
+                id = ++nextId
+            )
+        ) + posts
+    }
+
+    private fun update(post: Post) {
+        data.value = posts.map {
+            if (it.id == post.id) post else it
+        }
+    }
+
+    private companion object {
+        const val GENERATED_POSTS_AMOUNT = 10
     }
 }
