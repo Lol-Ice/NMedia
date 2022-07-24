@@ -7,35 +7,68 @@ import ru.netology.nmedia.dto.countLiked
 import ru.netology.nmedia.dto.countShared
 
 class InMemoryPostRepository : PostRepository {
-    override val data = MutableLiveData(
-        Post(
-            id = 0L,
-            postName = "Нетология. Университет интернет-профессий",
-            postData = "20.06.2022",
-            postText = "Привет, это новая Нетология! Когда-то Нетология начиналась с интенсивов по онлайн-маркетингу. Затем появились курсы по дизайну, разработке, аналитике и управлению. Мы растём сами и помогаем расти студентам: от новичков до уверенных профессионалов. Но самое важное остаётся с нами: мы верим, что в каждом уже есть сила, которая заставляет хотеть больше, целиться выше, бежать быстрее. Наша миссия - помочь встать на путь роста и начать цепочку перемен → https://netolo.gy/fyb"
-        )
-    )
-
-    override fun like() {
-        val currentPost = checkNotNull(data.value) {
+    private var posts
+        get() = checkNotNull(data.value)
+        set(value) {
+            data.value = value
         }
-        val likedPost = currentPost.copy(
-            likes = currentPost.likes,
-            likedByMe = !currentPost.likedByMe,
-            countLikeFormat = countLiked(currentPost.likes, !currentPost.likedByMe)
+
+    override val data: MutableLiveData<List<Post>>
+
+    init {
+        val initialPosts = listOf(
+            Post(
+                id = 5,
+                postName = "Нетология. Университет интернет-профессий",
+                postData = "12.07.2022",
+                postText = "Привет, это новая Нетология!"
+            ),
+            Post(
+                id = 4,
+                postName = "Нетология. Университет интернет-профессий",
+                postData = "11.09.2022",
+                postText = "Привет, это новая Нетология!"
+            ),
+            Post(
+                id = 3,
+                postName = "Нетология. Университет интернет-профессий",
+                postData = "22.08.2022",
+                postText = "Привет, это новая Нетология!"
+            ),
+            Post(
+                id = 2,
+                postName = "Нетология. Университет интернет-профессий",
+                postData = "21.07.2022",
+                postText = "Когда-то Нетология начиналась с интенсивов по онлайн-маркетингу. Затем появились курсы по дизайну, разработке, аналитике и управлению. Мы растём сами и помогаем расти студентам: от новичков до уверенных профессионалов."
+            ),
+            Post(
+                id = 1,
+                postName = "Нетология. Университет интернет-профессий",
+                postData = "20.06.2022",
+                postText = "Привет, это новая Нетология! Когда-то Нетология начиналась с интенсивов по онлайн-маркетингу. Затем появились курсы по дизайну, разработке, аналитике и управлению. Мы растём сами и помогаем расти студентам: от новичков до уверенных профессионалов. Но самое важное остаётся с нами: мы верим, что в каждом уже есть сила, которая заставляет хотеть больше, целиться выше, бежать быстрее. Наша миссия - помочь встать на путь роста и начать цепочку перемен → https://netolo.gy/fyb"
+            )
         )
-        data.value = likedPost
+        data = MutableLiveData(initialPosts)
     }
 
-    override fun share() {
-        val currentPost = checkNotNull(data.value) {
+    override fun like(postId: Long) {
+        posts = posts.map { post ->
+            if (post.id == postId) post.copy(
+                likedByMe = !post.likedByMe,
+                likes = post.likes,
+                countLikeFormat = countLiked(post.likes, !post.likedByMe)
+            )
+            else post
         }
-        val sharedPost = currentPost.copy(
-            shares = currentPost.shares,
-            countShareFormat = countShared(currentPost.shares)
-        )
-        ++sharedPost.shares
-        data.value = sharedPost
     }
 
+    override fun share(postId: Long) {
+        posts = posts.map { post ->
+            if (post.id == postId) post.copy(
+                shares = post.shares + 1,
+                countShareFormat = countShared(post.shares + 1)
+            )
+            else post
+        }
+    }
 }
