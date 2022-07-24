@@ -3,17 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    tools:context=".MainActivity">
 
     <ImageView
-    android:id="@+id/avatar"
-    android:layout_width="60dp"
-    android:layout_height="60dp"
-    android:contentDescription="@string/avatar_post"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    tools:ignore="ImageContrastCheck"
-    android:src="@mipmap/ic_launcher" />
+        android:id="@+id/avatar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:contentDescription="@string/avatar_post"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck"
+        android:src="@mipmap/ic_launcher" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/postName"
@@ -48,7 +49,7 @@
         android:contentDescription="@string/options"
         android:background="@android:color/transparent"
         android:minHeight="48dp"
-        android:src="@drawable/ic_options_24dp"
+        android:src="@drawable/ic_options"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/avatar" />
 
@@ -92,10 +93,9 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/countLike"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/count_like"
-        android:ellipsize="end"
         android:singleLine="true"
         android:text="@string/count_like"
         app:layout_constraintTop_toTopOf="@id/like"
@@ -116,7 +116,7 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/countShare"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/count_share"
         android:ellipsize="end"
@@ -140,7 +140,7 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/countViewing"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
         android:contentDescription="@string/count_viewing"

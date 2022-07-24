@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item name="headerBarrier" type="id" />
+    <item name="postName" type="id" />
+    <item name="postData" type="id" />
+    <item name="options" type="id" />
+    <item name="postText" type="id" />
+    <item name="headerBarrier2" type="id" />
+    <item name="like" type="id" />
+    <item name="countLike" type="id" />
+    <item name="share" type="id" />
+    <item name="countShare" type="id" />
+    <item name="viewing" type="id" />
+    <item name="countViewing" type="id" />
 </resources>
