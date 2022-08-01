@@ -42,4 +42,5 @@ dependencies {
     // LiveData
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.6.0-alpha01"
     implementation "androidx.activity:activity-ktx:1.5.0"
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
 }
