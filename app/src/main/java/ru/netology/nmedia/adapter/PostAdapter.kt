@@ -61,6 +61,9 @@ class PostAdapter(
             binding.share.setOnClickListener {
                 listener.onShareClicked(post)
             }
+            binding.options.setOnClickListener {
+                popupMenu.show()
+            }
         }
 
         fun bind(post: Post) {
@@ -70,14 +73,11 @@ class PostAdapter(
                 postName.text = post.postName
                 postData.text = post.postData
                 postText.text = post.postText
-                countLike.text = post.countLikeFormat.toString()
-                countShare.text = post.countShareFormat.toString()
-                like.setImageResource(
-                    if (post.likedByMe) R.drawable.ic_red_like else R.drawable.ic_like
-                )
-                options.setOnClickListener {
-                    popupMenu.show()
-                }
+                like.text = post.countLikeFormat.toString()
+                like.isChecked = post.likedByMe
+                like.setBackgroundColor(android.R.drawable.btn_default)
+                share.text = post.countShareFormat.toString()
+                share.isChecked = false
             }
         }
     }

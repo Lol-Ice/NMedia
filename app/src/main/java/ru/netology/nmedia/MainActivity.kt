@@ -38,13 +38,13 @@ class MainActivity : AppCompatActivity() {
                     requestFocus()
                     showKeyboard()
                     setSelection(content.length)
-                    with(binding.groupEdit) { //надпись "редактирование поста:"
+                    with(binding.groupEdit) { //группа отображений для редактирования поста
                         visibility = VISIBLE
                     }
                     with(binding.textEditText) { //текст редактируемого поста
                         text = content
                     }
-                    with(binding.cancelEditButton) {
+                    with(binding.cancelEditButton) { //отмена редактирования поста
                         setOnClickListener {
                             viewModel.onSaveButtonClicked(content)
                         }

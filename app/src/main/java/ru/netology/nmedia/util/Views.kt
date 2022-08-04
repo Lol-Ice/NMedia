@@ -3,8 +3,6 @@ package ru.netology.nmedia.util
 import android.content.Context
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.view.inputmethod.InputMethodManager.SHOW_FORCED
-
 
 internal fun View.hideKeyboard() {
     val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
@@ -13,5 +11,5 @@ internal fun View.hideKeyboard() {
 
 internal fun View.showKeyboard() {
     val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
-    imm!!.toggleSoftInput(SHOW_FORCED,/*flags =*/0)
+    imm!!.toggleSoftInput(0,/*flags =*/0)
 }
