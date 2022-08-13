@@ -22,7 +22,8 @@ class InMemoryPostRepository : PostRepository {
                 id = index + 1L,
                 postName = "Нетология. Университет интернет-профессий",
                 postData = "07.08.2022",
-                postText = "Привет, это новая Нетология!"
+                postText = "Привет, это новая Нетология!",
+                video = "https://www.youtube.com/watch?v=4IIjp2mljbs&ab_channel=KOSMO"
             )
         }
     )

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".MainActivity">
+    tools:context=".activity.MainActivity">
 
     <ImageView
         android:id="@+id/avatar"
@@ -36,11 +36,12 @@
         android:contentDescription="@string/post_data"
         android:ellipsize="end"
         android:singleLine="true"
+        android:text="@string/post_data"
         app:layout_constraintBottom_toBottomOf="@+id/avatar"
         app:layout_constraintEnd_toStartOf="@id/options"
         app:layout_constraintStart_toEndOf="@id/avatar"
         app:layout_constraintTop_toBottomOf="@id/postName"
-        android:text="@string/post_data" />
+        tools:ignore="TextContrastCheck" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/options"
@@ -62,22 +63,21 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/postText"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp"
         android:contentDescription="@string/post_data"
+        android:padding="5dp"
         android:text="@string/post_text"
+        app:layout_constraintBottom_toTopOf="@id/video"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/headerBarrier"
-        app:layout_constraintBottom_toBottomOf="@id/headerBarrier2" />
+        app:layout_constraintTop_toBottomOf="@id/headerBarrier" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/headerBarrier2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:barrierDirection="bottom"
-        app:constraint_referenced_ids="postText" />
+        app:constraint_referenced_ids="postText, video, buttonPlay" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/like"
@@ -129,5 +129,37 @@
         app:layout_constraintBottom_toBottomOf="@id/viewing"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/viewing" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/video"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/video"
+        android:src="@drawable/cosmo"
+        app:layout_constraintBottom_toTopOf="@id/headerBarrier2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/postText" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/buttonPlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_play_48"
+        android:contentDescription="@string/enable_video"
+        app:layout_constraintBottom_toBottomOf="@id/video"
+        app:layout_constraintEnd_toEndOf="@id/video"
+        app:layout_constraintStart_toStartOf="@id/video"
+        app:layout_constraintTop_toTopOf="@id/video"/>
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/videoGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="video, buttonPlay"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

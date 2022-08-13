@@ -3,19 +3,26 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/NMedia/app/src/main/res/drawable/ic_add_24.xml" value="0.1" />
         <entry key="..\:/NMedia/app/src/main/res/drawable/ic_add_options.xml" value="0.1" />
         <entry key="..\:/NMedia/app/src/main/res/drawable/ic_cancel.xml" value="0.1" />
+        <entry key="..\:/NMedia/app/src/main/res/drawable/ic_cancel_24.xml" value="0.1" />
         <entry key="..\:/NMedia/app/src/main/res/drawable/ic_check.xml" value="0.1" />
         <entry key="..\:/NMedia/app/src/main/res/drawable/ic_edit.xml" value="0.1" />
         <entry key="..\:/NMedia/app/src/main/res/drawable/ic_launcher_background.xml" value="0.14" />
         <entry key="..\:/NMedia/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.14" />
         <entry key="..\:/NMedia/app/src/main/res/drawable/ic_like.xml" value="0.14" />
         <entry key="..\:/NMedia/app/src/main/res/drawable/ic_liked.xml" value="0.1" />
+        <entry key="..\:/NMedia/app/src/main/res/drawable/ic_ok_24dp.xml" value="0.1" />
         <entry key="..\:/NMedia/app/src/main/res/drawable/ic_options_24dp.xml" value="0.14" />
+        <entry key="..\:/NMedia/app/src/main/res/drawable/ic_play_48.xml" value="0.1" />
         <entry key="..\:/NMedia/app/src/main/res/drawable/ic_share.xml" value="0.14" />
         <entry key="..\:/NMedia/app/src/main/res/drawable/ic_shared.xml" value="0.1" />
         <entry key="..\:/NMedia/app/src/main/res/drawable/ic_viewing.xml" value="0.14" />
-        <entry key="..\:/NMedia/app/src/main/res/layout/activity_main.xml" value="0.13322231473771856" />
+        <entry key="..\:/NMedia/app/src/main/res/layout/activity_edit_post.xml" value="0.1" />
+        <entry key="..\:/NMedia/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/NMedia/app/src/main/res/layout/activity_new_post.xml" value="0.1" />
+        <entry key="..\:/NMedia/app/src/main/res/layout/activity_share.xml" value="0.1" />
         <entry key="..\:/NMedia/app/src/main/res/layout/post.xml" value="0.18697916666666667" />
         <entry key="..\:/NMedia/app/src/main/res/layout/post_list.xml" value="0.1" />
         <entry key="..\:/NMedia/app/src/main/res/menu/options_post.xml" value="0.1" />

@@ -4,105 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity" >
+    tools:context=".activity.MainActivity" >
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/postsRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@id/toolsTopBarrier"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="0dp"
         tools:listitem="@layout/post_list" />
 
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/toolsTopBarrier"
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:barrierDirection="top"
-        app:layout_constraintBottom_toTopOf="@id/cancelEditButton"
-        app:constraint_referenced_ids="contentEditText, saveButton,
-        cancelEditButton, editPostText, textEditText, imageEditText"/>
-
-    <EditText
-        android:id="@+id/contentEditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:hint="@string/edit_text"
-        android:importantForAutofill="no"
-        android:inputType="textMultiLine"
-        android:minHeight="48dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/saveButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck"/>
-
-    <ImageButton
-        android:id="@+id/saveButton"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@android:color/transparent"
-        android:contentDescription="@string/description_edit"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:contentDescription="@string/button_ok"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/contentEditText"
-        android:src="@drawable/ic_check" />
-
-    <ImageButton
-        android:id="@+id/cancelEditButton"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@android:color/transparent"
-        android:contentDescription="@string/description_cancelEditButton"
-        android:src="@drawable/ic_cancel"
-        app:layout_constraintBottom_toTopOf="@id/saveButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:visibility="gone"/>
-
-    <TextView
-        android:id="@+id/editPostText"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="@string/editPostText"
-        app:layout_constraintBottom_toTopOf="@id/textEditText"
-        app:layout_constraintStart_toEndOf="@+id/imageEditText"
-        app:layout_constraintTop_toBottomOf="@id/toolsTopBarrier"
-        app:layout_constraintEnd_toStartOf="@id/cancelEditButton"
-        android:visibility="gone"/>
-
-    <TextView
-        android:id="@+id/textEditText"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:contentDescription="@string/editPostText"
-        android:text="@string/edit_text"
-        app:layout_constraintTop_toBottomOf="@id/editPostText"
-        app:layout_constraintBottom_toTopOf="@id/contentEditText"
-        app:layout_constraintStart_toEndOf="@+id/imageEditText"
-        app:layout_constraintEnd_toStartOf="@id/cancelEditButton"
-        android:visibility="gone" />
-
-    <ImageButton
-        android:id="@+id/imageEditText"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@android:color/transparent"
-        android:src="@drawable/ic_edit"
-        app:layout_constraintBottom_toTopOf="@id/contentEditText"
-        app:layout_constraintStart_toStartOf="parent"
-        android:contentDescription="@string/imageEdit"
-        android:visibility="gone"/>
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/groupEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:constraint_referenced_ids="cancelEditButton, editPostText,
-        textEditText, imageEditText" />
+        app:srcCompat="@drawable/ic_add_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

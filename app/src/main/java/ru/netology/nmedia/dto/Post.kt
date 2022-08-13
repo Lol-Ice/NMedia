@@ -9,5 +9,6 @@ data class Post(
     val likes: Int = 0,
     val countLikeFormat: Any = countLiked(likes, likedByMe),
     var shares: Int = 0,
-    val countShareFormat: Any = countShared(shares)
+    val countShareFormat: Any = countShared(shares),
+    val video: String? = null
 )
