@@ -1,16 +1,20 @@
 package ru.netology.nmedia.viewModel
 
 import SingleLiveEvent
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import ru.netology.nmedia.activity.NewPostActivity
 import ru.netology.nmedia.adapter.PostInteractionListener
 import ru.netology.nmedia.data.PostRepository
-import ru.netology.nmedia.data.impr.InMemoryPostRepository
+import ru.netology.nmedia.data.impr.FilePostRepository
 import ru.netology.nmedia.dto.Post
 
-class PostViewModel : ViewModel(), PostInteractionListener {
-    private val repository: PostRepository = InMemoryPostRepository()
+class PostViewModel(application: Application) : AndroidViewModel(application),
+    PostInteractionListener {
+
+    private val repository: PostRepository =
+        FilePostRepository(application)
 
     val data by repository::data
 
@@ -42,7 +46,7 @@ class PostViewModel : ViewModel(), PostInteractionListener {
         navigateToPostContentScreenEvent.call()
     }
 
-    // region PostInteractionListener
+
 
     override fun onLikeClicked(post: Post) =
         repository.like(post.id)
@@ -64,6 +68,6 @@ class PostViewModel : ViewModel(), PostInteractionListener {
         navigateToVideo.value = post.video
     }
 
-    // endregion PostInteractionListener
+
 
 }

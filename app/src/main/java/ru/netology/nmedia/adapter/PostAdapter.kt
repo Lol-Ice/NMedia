@@ -80,10 +80,10 @@ class PostAdapter(
                 postName.text = post.postName
                 postData.text = post.postData
                 postText.text = post.postText
-                like.text = post.countLikeFormat.toString()
+                like.text = post.likes.toString()
                 like.isChecked = post.likedByMe
                 like.setBackgroundColor(android.R.drawable.btn_default)
-                share.text = post.countShareFormat.toString()
+                share.text = post.shares.toString()
                 share.isChecked = false
                 videoGroup.visibility =
                     if (post.video.isNullOrBlank()) View.GONE else View.VISIBLE
