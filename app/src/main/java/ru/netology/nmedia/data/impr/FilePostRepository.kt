@@ -98,7 +98,7 @@ class FilePostRepository(
     }
 
     private companion object {
-        const val NEXT_ID_PREFS_KEY = "nextId"
-        const val FILE_NAME = "posts.json"
+        const val NEXT_ID_PREFS_KEY = "NEXT_ID_PREFS_KEY"
+        const val FILE_NAME = "FILE_NAME"
     }
 }

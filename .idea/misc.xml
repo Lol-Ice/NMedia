@@ -19,10 +19,13 @@
         <entry key="..\:/NMedia/app/src/main/res/drawable/ic_share.xml" value="0.14" />
         <entry key="..\:/NMedia/app/src/main/res/drawable/ic_shared.xml" value="0.1" />
         <entry key="..\:/NMedia/app/src/main/res/drawable/ic_viewing.xml" value="0.14" />
+        <entry key="..\:/NMedia/app/src/main/res/layout/activity_app.xml" value="0.1" />
         <entry key="..\:/NMedia/app/src/main/res/layout/activity_edit_post.xml" value="0.1" />
         <entry key="..\:/NMedia/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/NMedia/app/src/main/res/layout/activity_new_post.xml" value="0.1" />
         <entry key="..\:/NMedia/app/src/main/res/layout/activity_share.xml" value="0.1" />
+        <entry key="..\:/NMedia/app/src/main/res/layout/fragment_feed.xml" value="0.1" />
+        <entry key="..\:/NMedia/app/src/main/res/layout/fragment_new_post.xml" value="0.1" />
         <entry key="..\:/NMedia/app/src/main/res/layout/post.xml" value="0.18697916666666667" />
         <entry key="..\:/NMedia/app/src/main/res/layout/post_list.xml" value="0.1" />
         <entry key="..\:/NMedia/app/src/main/res/menu/options_post.xml" value="0.1" />
